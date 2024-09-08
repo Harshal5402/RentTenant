@@ -1,6 +1,6 @@
 import React from "react";
 import "./Home.css";
-import RentTenant_logo from "../../src/assets/RentTenant_logo.png";
+import RentTenant_logo from "../../assets/RentTenant_logo.png";
 
 const Home = () => {
   return (
