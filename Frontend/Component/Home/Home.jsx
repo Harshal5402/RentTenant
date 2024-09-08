@@ -1,17 +1,20 @@
-import React from 'react'
-import "./Home.css" 
-import Navbar from '../Navbar/Navbar'
+import React from "react";
+import "./Home.css";
+import RentTenant_logo from "../../src/assets/RentTenant_logo.png";
 
 const Home = () => {
   return (
     <>
-    <Navbar/>
-    <div className='Home'>
-        <button className='SignUp'>Sign Up</button>
-        <button className='SignIn'>Sign In</button>
-    </div>
-    </>
-  )
-}
+      <div className="Home">
+        <img className="logo" src={RentTenant_logo} alt="" />
 
-export default Home
+        <div className="btn">
+          <button className="SignUp">Sign Up</button>
+          <button className="SignIn">Sign In</button>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Home;
