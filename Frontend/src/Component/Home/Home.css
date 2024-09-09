@@ -19,10 +19,19 @@
     height: 40px;
     width: 85px;
     margin-left: 20px;
-    border-radius: 12px;
     border: none;
     background-color: #07273b;
     color: white;
     font-size: large;
     font-weight: 600;
+}
+
+.SignUp{
+    border-top-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+.SignIn{
+    border-top-left-radius: 12px;
+    border-bottom-right-radius: 12px;
 }
