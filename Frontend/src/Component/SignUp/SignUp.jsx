@@ -3,6 +3,22 @@ import { assets } from "../../assets/assets";
 import "./SignUp.css";
 
 const SignUp = (props) => {
+
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    password: ""
+  });
+
+  let name, value
+  const handleInputs = (e) => {
+    console.log(e);
+    name = e.target.name;
+    value = e.target.value;
+
+    setUser({...user, [name]:value});
+  }
+
   return props.trigger ? (
     <div className="Signup">
       <form className="Signup-container">
@@ -15,9 +31,9 @@ const SignUp = (props) => {
           />
         </div>
         <div className="Signup-inputs">
-          <input type="text" placeholder="Full Name" required />
-          <input type="email" placeholder="Email" required />
-          <input type="password" placeholder="Password" required />
+          <input type="text" name="name" placeholder="Full Name" value={user.name} onChange={handleInputs} required />
+          <input type="email" name="email" placeholder="Email" value={user.email} onChange={handleInputs} required />
+          <input type="password" name="password" placeholder="Password" value={user.password} onChange={handleInputs} required />
         </div>
         <button type="Submit">Create Account</button>
         <div className="Signup-conditon">
