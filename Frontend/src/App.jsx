@@ -1,17 +1,16 @@
-import { useState } from 'react'
-import Home from './Component/Home/Home'
-import { Route, Routes } from 'react-router-dom'
-import {ToastContainer} from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css';
+import { useState } from "react";
+import Navbar from "./Component/Navbar/Navbar";
+import { Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
-
   return (
     <>
-    <ToastContainer/>
-    <Home />
+      <ToastContainer />
+      <Navbar />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
