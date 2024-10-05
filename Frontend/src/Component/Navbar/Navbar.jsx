@@ -26,15 +26,16 @@ const Home = () => {
           src={assets.RentTenant_logo}
           alt="Rent Tenant Logo"
         />
-        {/* <div className="nav-profile">
+        
+        <div className="nav-profile">
           <img src={assets.profile_icon} alt="" />
           <ul className="nav-profile-dropdown">
-            <li onClick={logout}>
+            <li /*onClick={logout}*/ >
               <img src={assets.logout_icon} alt="" />
               <p>Logout</p>
             </li>
           </ul>
-        </div> */}
+        </div>
 
         <div className="nav-btn">
           <button onClick={openSignUp} className="SignUp">

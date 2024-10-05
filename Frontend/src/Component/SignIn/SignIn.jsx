@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './SignIn.css'
 import { assets } from '../../assets/assets'
 import { toast } from 'react-toastify'
 import axios from 'axios'
+import { StoreContext } from '../../Context/StoreContext'
 
 const SignIn = (props) => {
 
-  const url = 'http://localhost:3000'
+  // const url = 'http://localhost:3000'
+  const {url} = useContext(StoreContext)
   
   const [data, setData] = useState({
     email: "",
@@ -27,6 +29,7 @@ const SignIn = (props) => {
     try {
       const response = await axios.post(newUrl, data)
       if (response.data.success) {
+        setToken(response.data.token)
         toast.success('User Login Successfull')
       }
       else{
