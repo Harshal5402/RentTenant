@@ -1,12 +1,19 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Navbar.css"
 import { assets } from "../../assets/assets";
 import SignUp from "../SignUp/SignUp";
 import SignIn from "../SignIn/SignIn";
+import { StoreContext } from "../../Context/StoreContext";
 
-const Home = () => {
+const Navbar = () => {
   const [signUpPopup, setSignUpPopup] = useState(false);
   const [signInPopup, setSignInPopup] = useState(false);
+  const {token, setToken} = useContext(StoreContext)
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    setToken("");
+  }
 
   const openSignUp = () => {
     setSignUpPopup(true);
@@ -19,7 +26,6 @@ const Home = () => {
   };
 
   return (
-    <>
       <div className="navbar">
         <img
           className="nav-logo"
@@ -27,15 +33,9 @@ const Home = () => {
           alt="Rent Tenant Logo"
         />
         
-        <div className="nav-profile">
-          <img src={assets.profile_icon} alt="" />
-          <ul className="nav-profile-dropdown">
-            <li /*onClick={logout}*/ >
-              <img src={assets.logout_icon} alt="" />
-              <p>Logout</p>
-            </li>
-          </ul>
-        </div>
+        
+
+        {!token ? 
 
         <div className="nav-btn">
           <button onClick={openSignUp} className="SignUp">
@@ -59,9 +59,19 @@ const Home = () => {
             />
           )}
         </div>
+        :
+        <div className="nav-profile">
+          <img src={assets.profile_icon} alt="" />
+          <ul className="nav-profile-dropdown">
+            <li onClick={logout}>
+              <img src={assets.logout} alt="" />
+              <p>Logout</p>
+            </li>
+          </ul>
+        </div>
+        }
       </div>
-    </>
   );
 };
 
-export default Home;
+export default Navbar;

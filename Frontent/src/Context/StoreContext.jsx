@@ -1,19 +1,22 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 export const StoreContext = createContext(null)
 
 const StoreContextProvider = (props) => {
 
     const url = "http://localhost:3000"
+    const [token, setToken] = useState("") 
 
 
     const contextValue = {
-        url
+        url,
+        token,
+        setToken
     }
     return(
-        <StoreContextProvider value={contextValue}>
+        <StoreContext.Provider value={contextValue}>
             {props.children}
-        </StoreContextProvider>
+        </StoreContext.Provider>
     )
 
 }

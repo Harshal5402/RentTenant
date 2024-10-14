@@ -7,8 +7,7 @@ import { StoreContext } from '../../Context/StoreContext'
 
 const SignIn = (props) => {
 
-  // const url = 'http://localhost:3000'
-  const {url} = useContext(StoreContext)
+  const {url, setToken} = useContext(StoreContext)
   
   const [data, setData] = useState({
     email: "",
@@ -30,6 +29,7 @@ const SignIn = (props) => {
       const response = await axios.post(newUrl, data)
       if (response.data.success) {
         setToken(response.data.token)
+        localStorage.setItem("token", response.data.token)
         toast.success('User Login Successfull')
       }
       else{

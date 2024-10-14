@@ -3,9 +3,11 @@ import { assets } from "../../assets/assets";
 import "./SignUp.css";
 import axios from 'axios'
 import { toast } from "react-toastify";
+import { StoreContext } from "../../Context/StoreContext";
 
 const SignUp = (props) => {
-  const url = 'http://localhost:3000'
+
+  const {url, setToken} = useContext(StoreContext)
 
   const [data, setData] = useState({
     name: "",
@@ -27,6 +29,8 @@ const SignUp = (props) => {
     try {
       const response = await axios.post(newUrl, data)
       if (response.data.success) {
+        setToken(response.data.token)
+        localStorage.setItem("token", response.data.token)
         toast.success('User Register Successfully')
       }
       else{
